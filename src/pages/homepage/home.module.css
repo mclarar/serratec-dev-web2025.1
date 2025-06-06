@@ -6,13 +6,9 @@
     background-color: #100f0f;
 }
 
-.button {
-    width: 13rem;
-    background-color: #3498db;
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
+
+.cardsContainer{
+    display: flex;
+    gap:2rem;
+    justify-content: center;
 }

@@ -2,42 +2,60 @@ import { Navbar } from "../../components/Navbar/navbar";
 import styles from "./home.module.css";
 import { Input } from "../../components/Input/input";
 import { useState } from "react";
+import { Card } from "../../components/Card/card";
+import { Button } from "../../components/Button/Button";
 
 export function HomePage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [counter, setCounter] = useState(0);
+  const [show, setShow] = useState(false);
 
-  const handleInputChange = (event) => {
-    setNome(event.target.value);
-    console.log(e.target.value);
+  const series = [
+    "Ted Lasso",
+    "Dexter",
+    "Gilmore Girls",
+    "Severance",
+    "Stranger Things",
+    "Breaking Bad",
+    "Fleabag",
+  ];
+
+  // const handleInputChange = (event) => {
+  //   setNome(event.target.value);
+  //   console.log(e.target.value);
+  // };
+
+  const handleClick = () => {
+    console.log("clicou no botão");
   };
 
-  const handleCounter = () => {
-    setCounter(counter + 1);
-  };
+  const handleAlternarMensagem =()=> {
+    setShow(!show)
+  }
 
   return (
     <div className={styles.container}>
       <Navbar />
-      <Input
-        type="text"
-        placeholder="Escreva seu nome..."
-        value={nome}
-        onChange={handleInputChange}
-      />
-      <Input
-        type="text"
-        placeholder="Escreva seu email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
 
-      <h1 style={{color: 'white'}}>Contador:{counter}</h1>
-      {/* <div> */}
+      <h1>Minhas séries favoritas</h1>
 
-      <button className={styles.button} onClick={handleCounter}>incrementar</button>
-      {/* </div> */}
+      <div className={styles.cardsContainer}>
+        {series.map((serie, index) => (
+          <>
+            <Card key={index}>
+              <p>{serie}</p>
+            </Card>
+          </>
+        ))}
+        <Button onClick={handleClick} title={"Clique aqui"} type="button" />
+      </div>
+
+      
+         <Button onClick={()=>{handleAlternarMensagem}} title={show ? 'Esconder mensagem' : 'mostrar mensagem'} type="button" />
+         {
+          show && <p style={{color: 'white'}}>oie</p>
+         }
     </div>
   );
 }
