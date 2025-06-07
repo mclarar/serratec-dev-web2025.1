@@ -1,6 +1,9 @@
-import styles from './navbar.module.css';
+import styles from "./navbar.module.css";
+import { useNavigate } from "react-router-dom";
 
 export function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <nav className={styles.navbar}>
       <img
@@ -10,8 +13,8 @@ export function Navbar() {
         alt="imagem"
       />
       <ul className={styles.navItens}>
-        <li>sobre</li>
-        <li>contato</li>
+        <li style={{cursor: 'pointer'}} onClick={() => navigate("/about")}>sobre</li>
+        <li onClick={()=> navigate('/formulario')}>formulário</li>
         <li>perguntas frequentes</li>
       </ul>
     </nav>

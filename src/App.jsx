@@ -1,13 +1,7 @@
-import { useState } from "react";
-import { HomePage } from "./pages/homepage/home";
-import { About } from "./pages/about/about";
+import { Rotas } from "./Routes/Routes";
 
 function App() {
-
-  return (
-    <HomePage/>
-   
-  );
+  return <Rotas />;
 }
 
 export default App;

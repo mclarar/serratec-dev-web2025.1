@@ -5,11 +5,13 @@ import { useState } from "react";
 import { Card } from "../../components/Card/card";
 import { Button } from "../../components/Button/Button";
 
+
 export function HomePage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [counter, setCounter] = useState(0);
   const [show, setShow] = useState(false);
+
 
   const series = [
     "Ted Lasso",
