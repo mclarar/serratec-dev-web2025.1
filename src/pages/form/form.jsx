@@ -1,14 +1,15 @@
-import { Button } from "../../components/Button/Button";
+
 import { Input } from "../../components/Input/input";
 import { useState } from "react";
 import styles from "./form.module.css";
+import { cartContext } from "../../context/cartContext";
 
 export function FormPage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [aceitaTermos, setAceitaTermos] = useState(false);
 
-  const handleSubmit = (e) => {
+  const {totalValue} = cartContext();
     e.preventDefault(); // evita o recarregamento da página
 
     const formData = {
@@ -16,7 +17,6 @@ export function FormPage() {
       email: email,
       aceitaTermos: aceitaTermos,
     };
-
     console.log(formData);
   };
 
@@ -47,4 +47,4 @@ export function FormPage() {
       </form>
     </div>
   );
-}
+
